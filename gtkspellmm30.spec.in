@@ -5,7 +5,7 @@ License:       GPLv2+
 Group:         System Environment/Libraries
 Summary:       On-the-fly spell checking for GtkTextView widgets - C++ bindings
 URL:           http://gtkspell.sourceforge.net/
-Source0:        http://downloads.sourceforge.net/gtkspell/gtkspellmm-%{version}.tar.gz
+Source0:       http://sourceforge.net/projects/gtkspell/files/gtkspellmm/gtkspellmm-%{version}.tar.gz
 
 BuildRequires: gtkspell3-devel gtkmm30-devel gtkmm30-doc
 
@@ -68,5 +68,5 @@ find $RPM_BUILD_ROOT -name "*.la" -exec rm {} \;
 %{_datadir}/doc/gtkspellmm-3.0
 
 %changelog
-* Fri Mar 07 2013 Sandro Mani <manisandro@gmail.com> - 3.@GTKSPELLMM_VERSION_MINOR@.@GTKSPELLMM_VERSION_MICRO@-1
+* Fri Mar 08 2013 Sandro Mani <manisandro@gmail.com> - 3.@GTKSPELLMM_VERSION_MINOR@.@GTKSPELLMM_VERSION_MICRO@-1
 - Initial package.

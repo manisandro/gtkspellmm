@@ -1,0 +1,15 @@
+;; From gtkspell.h
+
+;; Original typedef:
+;; typedef enum {
+;;   GTK_SPELL_ERROR_BACKEND
+;; } GtkSpellError;
+
+(define-enum-extended SpellError
+  (in-module "Gtk")
+  (c-name "GtkSpellError")
+  (values
+    '("backend" "GTK_SPELL_ERROR_BACKEND" "0")
+  )
+)
+

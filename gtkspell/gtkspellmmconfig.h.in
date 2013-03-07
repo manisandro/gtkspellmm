@@ -1,0 +1,10 @@
+/* This file is part of gtkspellmm. */
+
+/* Major version number of gtkspellmm. */
+#undef GTKSPELLMM_MAJOR_VERSION
+
+/* Micro version number of gtkspellmm. */
+#undef GTKSPELLMM_MICRO_VERSION
+
+/* Minor version number of gtkspellmm. */
+#undef GTKSPELLMM_MINOR_VERSION

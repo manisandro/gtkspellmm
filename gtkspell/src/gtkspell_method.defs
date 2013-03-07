@@ -1,0 +1,101 @@
+;; -*- scheme -*-
+; object definitions ...
+(define-object SpellChecker
+  (in-module "Gtk")
+  (parent "GInitiallyUnowned")
+  (c-name "GtkSpellChecker")
+  (gtype-id "GTK_TYPE_SPELL_CHECKER")
+)
+
+;; Enumerations and flags ...
+
+(define-enum SpellError
+  (in-module "Gtk")
+  (c-name "GtkSpellError")
+  (gtype-id "GTK_TYPE_SPELL_ERROR")
+  (values
+    '("backend" "GTK_SPELL_ERROR_BACKEND")
+  )
+)
+
+
+;; From gtkspell.h
+
+(define-function gtk_spell_error_quark
+  (c-name "gtk_spell_error_quark")
+  (return-type "GQuark")
+)
+
+(define-function gtk_spell_error_get_type
+  (c-name "gtk_spell_error_get_type")
+  (return-type "GType")
+)
+
+(define-function gtk_spell_checker_get_type
+  (c-name "gtk_spell_checker_get_type")
+  (return-type "GType")
+)
+
+(define-function gtk_spell_checker_new
+  (c-name "gtk_spell_checker_new")
+  (is-constructor-of "GtkSpellChecker")
+  (return-type "GtkSpellChecker*")
+  (parameters
+  )
+)
+
+(define-method attach
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_attach")
+  (return-type "gboolean")
+  (parameters
+    '("GtkTextView*" "view")
+  )
+)
+
+(define-function gtk_spell_checker_get_from_text_view
+  (c-name "gtk_spell_checker_get_from_text_view")
+  (return-type "GtkSpellChecker*")
+  (parameters
+    '("GtkTextView*" "view")
+  )
+)
+
+(define-method detach
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_detach")
+  (return-type "none")
+)
+
+(define-method get_suggestions_menu
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_get_suggestions_menu")
+  (return-type "GtkWidget*")
+  (parameters
+    '("GtkTextIter*" "iter")
+  )
+)
+
+(define-method set_language
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_set_language")
+  (return-type "gboolean")
+  (parameters
+    '("const-gchar*" "lang")
+    '("GError**" "error")
+  )
+)
+
+(define-method get_language
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_get_language")
+  (return-type "const-gchar*")
+)
+
+(define-method recheck_all
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_recheck_all")
+  (return-type "none")
+)
+
+

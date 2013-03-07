@@ -1,0 +1,11 @@
+;; From GtkSpellChecker
+
+(define-signal language-changed
+  (of-object "GtkSpellChecker")
+  (return-type "void")
+  (when "last")
+  (parameters
+    '("const-gchar*" "p0")
+  )
+)
+

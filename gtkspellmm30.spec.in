@@ -1,0 +1,72 @@
+Name:          gtkspellmm30
+Version:       3.@GTKSPELLMM_VERSION_MINOR@.@GTKSPELLMM_VERSION_MICRO@
+Release:       1%{?dist}
+License:       GPLv2+
+Group:         System Environment/Libraries
+Summary:       On-the-fly spell checking for GtkTextView widgets - C++ bindings
+URL:           http://gtkspell.sourceforge.net/
+Source0:        http://downloads.sourceforge.net/gtkspell/gtkspellmm-%{version}.tar.gz
+
+BuildRequires: gtkspell3-devel gtkmm30-devel gtkmm30-doc
+
+%description
+GtkSpell provides word-processor-style highlighting and replacement of 
+misspelled words in a GtkTextView widget as you type. Right-clicking a
+misspelled word pops up a menu of suggested replacements.
+
+%package       devel
+Group:         Development/Libraries
+Summary:       Development files for gtkspellmm30
+Requires:      gtkspell3-devel gtkmm30-devel
+Requires:      pkgconfig
+Requires:      %{name} = %{version}-%{release}
+
+%description   devel
+The gtkspellmm30-devel package provides header and documentation files for
+developing C++ applications which use GtkSpell.
+
+%package       doc
+Group:         Documentation
+Summary:       Documentation for %{name}
+BuildArch:     noarch
+Requires:      %{name} = %{version}-%{release}
+Requires:      gtkmm30-doc
+
+%description   doc
+This package contains the full API documentation for %{name}.
+
+%prep
+%setup -q -n gtkspellmm-%{version}
+
+%build
+%configure
+
+make %{?_smp_mflags}
+
+%install
+make DESTDIR=$RPM_BUILD_ROOT install
+find $RPM_BUILD_ROOT -name "*.la" -exec rm {} \;
+
+%post -p /sbin/ldconfig
+
+%postun -p /sbin/ldconfig
+
+%files
+%defattr(-,root,root,-)
+%doc AUTHORS ChangeLog COPYING NEWS README
+%{_libdir}/libgtkspellmm-3.0.so.0*
+
+%files devel
+%defattr(-,root,root,-)
+%{_includedir}/gtkspellmm-3.0
+%{_libdir}/libgtkspellmm-3.0.so
+%{_libdir}/pkgconfig/gtkspellmm-3.0.pc
+%{_libdir}/gtkspellmm-3.0
+
+%files doc
+%{_datadir}/devhelp/books/gtkspellmm-3.0
+%{_datadir}/doc/gtkspellmm-3.0
+
+%changelog
+* Fri Mar 07 2013 Sandro Mani <manisandro@gmail.com> - 3.@GTKSPELLMM_VERSION_MINOR@.@GTKSPELLMM_VERSION_MICRO@-1
+- Initial package.

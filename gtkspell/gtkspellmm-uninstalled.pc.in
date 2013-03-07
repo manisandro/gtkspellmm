@@ -1,0 +1,10 @@
+doxytagfile=${pc_top_builddir}/doc/reference/@GTKSPELLMM_MODULE_NAME@.tag
+htmlrefpub=http://library.gnome.org/devel/@PACKAGE_TARNAME@/unstable/
+
+Name: gtkspellmm
+Description: C++ binding for gtkspell, not installed
+Version: @GTKSPELLMM_VERSION@
+URL: http://www.gtkmm.org/
+Requires: @GTKSPELLMM_MODULES@
+Libs: ${pc_top_builddir}/${pcfiledir}/gtkspellmm/libgtkspellmm-@GTKSPELLMM_API_VERSION@.la
+Cflags: -I${pc_top_builddir}/${pcfiledir} -I${pc_top_builddir}/${pcfiledir}/@srcdir@

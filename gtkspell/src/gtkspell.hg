@@ -1,0 +1,96 @@
+/* Copyright (c) 2013  Sandro Mani <manisandro@gmail.com>
+ *
+ * This file is part of gtkspellmm.
+ *
+ * gtkspellmm is free software: you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published
+ * by the Free Software Foundation, either version 2.1 of the License,
+ * or (at your option) any later version.
+ *
+ * gtkspellmm is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+_DEFS(gtkspellmm,gtkspell)
+_CONFIGINCLUDE(gtkspellmmconfig.h)
+_PINCLUDE(glibmm/private/object_p.h)
+
+#include <glibmm.h>
+#include <gtkmm.h>
+
+namespace GtkSpell
+{
+  _CC_INCLUDE(gtkspell/gtkspell.h)
+  _WRAP_GERROR(Error, GtkSpellError, GTK_SPELL_ERROR)
+
+class Checker : public Glib::Object
+{
+  _CLASS_GOBJECT(Checker, GtkSpellChecker, GTK_SPELL_CHECKER, Glib::Object, GObject)
+  _DERIVES_INITIALLY_UNOWNED()
+
+public:
+  /** Constructs a new GtkSpell::Checker object */
+  _CTOR_DEFAULT
+
+  /** Attach the GtkSpell::Checker to the specified Gtk::TextView
+   *
+   * @param view A Gtk::TextView
+   *
+   * @return Whether the operation succeded
+   */
+  _WRAP_METHOD(bool attach(Gtk::TextView& view), gtk_spell_checker_attach)
+
+  /** Retreives the GtkSpell::Checker attached to a Gtk::TextView
+   *
+   * @param view A Gtk::TextView
+   *
+   * @return A Glib::RefPtr to the attached Gtk::SpellChecker, if any, otherwise
+   * a @c null Glib::RefPtr
+   */
+  _WRAP_METHOD(static Glib::RefPtr<Checker> get_from_text_view(Gtk::TextView& view), gtk_spell_checker_get_from_text_view)
+
+  /** Detaches the Gtk::SpellChecker
+   *
+   * If the Gtk::SpellChecker is not attached to any Gtk::TextView, the function
+   * silently exits
+   */
+  _WRAP_METHOD(void detach(), gtk_spell_checker_detach)
+
+  /** Retreives a Gtk::Menu of replacement spellings
+   *
+   * @param iter A Gtk::TextIter position in the buffer to be corrected
+   *
+   * @return A pointer to a Gtk::Menu, or @c null if the word is not misspelt
+   */
+  _WRAP_METHOD(Gtk::Menu* get_suggestions_menu(Gtk::TextIter& iter), gtk_spell_checker_get_suggestions_menu)
+
+  /** Sets the language to be used for spelling, throws an exception on failure
+   *
+   * @param lang The language, as a locale specifier (i.e. "en", or "en_US")
+   *
+   * @throws Gtk::Error An exception describing the error occured
+   */
+  _WRAP_METHOD(void set_language(const Glib::ustring& lang), gtk_spell_checker_set_language, errthrow)
+
+  /** Gets the language currently being used for spelling
+   *
+   * @return The language, as a locale specifier (i.e. "en", or "en_US")
+   */
+  _WRAP_METHOD(Glib::ustring get_language(), gtk_spell_checker_get_language)
+
+  /** Rechecks the entire text buffer */
+  _WRAP_METHOD(void recheck_all(), gtk_spell_checker_recheck_all)
+
+  /** This signal is emitted when a new language is selected from the context menu
+   *
+   * @param newlang The new spelling language
+   */
+  _WRAP_SIGNAL(void language_changed(const Glib::ustring& newlang), "language-changed")
+};
+
+} // namespace GtkSpell

@@ -1,0 +1,5 @@
+;; Include generated API definition files
+(include gtkspell_enum.defs)
+(include gtkspell_method.defs)
+(include gtkspell_signal.defs)
+(include gtkspell_vfunc.defs)

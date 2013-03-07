@@ -1,0 +1,12 @@
+## This file is part of gtkspellmm.
+
+files_defs = \
+  gtkspell.defs        \
+  gtkspell_enum.defs   \
+  gtkspell_method.defs \
+  gtkspell_signal.defs \
+  gtkspell_vfunc.defs  \
+  gtkspell_docs.xml
+
+files_hg  = gtkspell.hg
+files_ccg = $(files_hg:.hg=.ccg)

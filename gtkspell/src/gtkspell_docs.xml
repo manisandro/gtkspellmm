@@ -1,0 +1,187 @@
+<root>
+<signal name="GtkSpellChecker::language-changed">
+<description>
+The ::language-changed signal is emitted when the user selects
+a new spelling language from the context menu.
+
+
+</description>
+<parameters>
+<parameter name="spell">
+<parameter_description> the #GtkSpellChecker object which received the signal.
+</parameter_description>
+</parameter>
+<parameter name="lang">
+<parameter_description> the new language which was selected.
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</signal>
+
+<enum name="GtkSpellError">
+<description>
+Error codes used for GtkSpell errors.
+
+
+</description>
+<parameters>
+<parameter name="GTK_SPELL_ERROR_BACKEND">
+<parameter_description> Error code for backend errors
+</parameter_description>
+</parameter>
+</parameters>
+</enum>
+
+<function name="gtk_spell_checker_attach">
+<description>
+Attach #GtkSpellChecker object to @view.
+
+Note: Please read the tutorial section of the documentation to make sure
+you don't leak references!
+
+
+</description>
+<parameters>
+<parameter name="spell">
+<parameter_description> A #GtkSpellChecker.
+</parameter_description>
+</parameter>
+<parameter name="view">
+<parameter_description> The #GtkTextView to attach to.
+</parameter_description>
+</parameter>
+</parameters>
+<return> TRUE on success, FALSE on failure.
+</return>
+</function>
+
+<function name="gtk_spell_checker_detach">
+<description>
+Detaches this #GtkSpellChecker from its #GtkTextView.  Use
+gtk_spell_checker_get_from_text_view () to retrieve a #GtkSpellChecker from
+a #GtkTextView. If the #GtkSpellChecker is not attached to any #GtkTextView,
+the function silently exits.
+
+Note: if the #GtkSpellChecker is owned by the #GtkTextView, you must
+take a reference to it to prevent it from being automatically destroyed.
+Please read the tutorial section of the documentation!
+
+</description>
+<parameters>
+<parameter name="spell">
+<parameter_description> A #GtkSpellChecker.
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_spell_checker_get_from_text_view">
+<description>
+Retrieves the #GtkSpellChecker object attached to a text view.
+
+
+</description>
+<parameters>
+<parameter name="view">
+<parameter_description> A #GtkTextView.
+</parameter_description>
+</parameter>
+</parameters>
+<return> the #GtkSpellChecker object, or %NULL if there is no #GtkSpellChecker
+attached to @view.
+</return>
+</function>
+
+<function name="gtk_spell_checker_get_language">
+<description>
+Fetches the current language.
+
+
+</description>
+<parameters>
+<parameter name="spell">
+<parameter_description> a #GtkSpellChecker
+</parameter_description>
+</parameter>
+</parameters>
+<return> the current language. This string is
+owned by the spell object and must not be modified or freed.
+</return>
+</function>
+
+<function name="gtk_spell_checker_get_suggestions_menu">
+<description>
+Retrieves a submenu of replacement spellings, or NULL if the word at @iter is
+not misspelt.
+
+
+</description>
+<parameters>
+<parameter name="spell">
+<parameter_description> A #GtkSpellChecker.
+</parameter_description>
+</parameter>
+<parameter name="iter">
+<parameter_description> Textiter of position in buffer to be corrected if necessary.
+</parameter_description>
+</parameter>
+</parameters>
+<return> the #GtkMenu widget, or %NULL if there is no need for a menu
+</return>
+</function>
+
+<function name="gtk_spell_checker_new">
+<description>
+Create a new #GtkSpellChecker object.
+
+
+</description>
+<parameters>
+</parameters>
+<return> a new #GtkSpellChecker object.
+</return>
+</function>
+
+<function name="gtk_spell_checker_recheck_all">
+<description>
+Recheck the spelling in the entire buffer.
+
+</description>
+<parameters>
+<parameter name="spell">
+<parameter_description> The #GtkSpellChecker object.
+</parameter_description>
+</parameter>
+</parameters>
+<return></return>
+</function>
+
+<function name="gtk_spell_checker_set_language">
+<description>
+Set the language on @spell to @lang, possibily returning an error in
+@error.
+
+
+</description>
+<parameters>
+<parameter name="spell">
+<parameter_description> The #GtkSpellChecker object.
+</parameter_description>
+</parameter>
+<parameter name="lang">
+<parameter_description> The language to use, as a locale specifier (i.e. &quot;en&quot;, or &quot;en_US&quot;).
+If #NULL, attempt to use the default system locale (LANG).
+</parameter_description>
+</parameter>
+<parameter name="error">
+<parameter_description> Return location for error.
+</parameter_description>
+</parameter>
+</parameters>
+<return> FALSE if there was an error.
+</return>
+</function>
+
+</root>

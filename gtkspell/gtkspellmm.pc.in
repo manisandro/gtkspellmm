@@ -1,0 +1,19 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+datarootdir=@datarootdir@
+datadir=@datadir@
+includedir=@includedir@
+
+docdir=${datarootdir}/doc/@GTKSPELLMM_MODULE_NAME@
+doxytagfile=${docdir}/reference/@GTKSPELLMM_MODULE_NAME@.tag
+htmlrefdir=${docdir}/reference/html
+htmlrefpub=http://library.gnome.org/devel/@PACKAGE_TARNAME@/unstable/
+
+Name: gtkspellmm
+Description: C++ binding for gtkspell
+Version: @GTKSPELLMM_VERSION@
+URL: http://www.gtkmm.org/
+Requires: @GTKSPELLMM_MODULES@
+Libs: -L${libdir} -lgtkspellmm-@GTKSPELLMM_API_VERSION@
+Cflags: -I${includedir}/@GTKSPELLMM_MODULE_NAME@ -I${libdir}/@GTKSPELLMM_MODULE_NAME@/include

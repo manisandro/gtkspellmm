@@ -1,7 +1,7 @@
 Name:          gtkspellmm30
 Version:       3.@GTKSPELLMM_VERSION_MINOR@.@GTKSPELLMM_VERSION_MICRO@
 Release:       1%{?dist}
-License:       GPLv2+
+License:       LGPLv2+
 Group:         System Environment/Libraries
 Summary:       On-the-fly spell checking for GtkTextView widgets - C++ bindings
 URL:           http://gtkspell.sourceforge.net/
@@ -19,7 +19,7 @@ Group:         Development/Libraries
 Summary:       Development files for gtkspellmm30
 Requires:      gtkspell3-devel gtkmm30-devel
 Requires:      pkgconfig
-Requires:      %{name} = %{version}-%{release}
+Requires:      %{name}%{?_isa} = %{version}-%{release}
 
 %description   devel
 The gtkspellmm30-devel package provides header and documentation files for
@@ -29,7 +29,6 @@ developing C++ applications which use GtkSpell.
 Group:         Documentation
 Summary:       Documentation for %{name}
 BuildArch:     noarch
-Requires:      %{name} = %{version}-%{release}
 Requires:      gtkmm30-doc
 
 %description   doc
@@ -52,12 +51,10 @@ find $RPM_BUILD_ROOT -name "*.la" -exec rm {} \;
 %postun -p /sbin/ldconfig
 
 %files
-%defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING NEWS README
 %{_libdir}/libgtkspellmm-3.0.so.0*
 
 %files devel
-%defattr(-,root,root,-)
 %{_includedir}/gtkspellmm-3.0
 %{_libdir}/libgtkspellmm-3.0.so
 %{_libdir}/pkgconfig/gtkspellmm-3.0.pc

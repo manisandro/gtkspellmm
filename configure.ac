@@ -16,7 +16,7 @@
 ## with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 m4_define(gtkspellmm_version_minor, 0)
-m4_define(gtkspellmm_version_micro, 1)
+m4_define(gtkspellmm_version_micro, 2)
 
 AC_INIT([gtkspellmm], [3.gtkspellmm_version_minor.gtkspellmm_version_micro],
         [https://sourceforge.net/p/gtkspell/_list/tickets], [gtkspellmm],
@@ -41,7 +41,7 @@ MM_INIT_MODULE([gtkspellmm-3.0])
 MM_CONFIG_DOCTOOL_DIR([doc])
 
 # http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html
-AC_SUBST([GTKSPELLMM_SO_VERSION], [0:0:0])
+AC_SUBST([GTKSPELLMM_SO_VERSION], [1:0:1])
 
 AC_PROG_CXX
 AC_DISABLE_STATIC

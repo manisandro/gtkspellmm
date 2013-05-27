@@ -83,6 +83,12 @@ public:
    */
   _WRAP_METHOD(Glib::ustring get_language(), gtk_spell_checker_get_language)
 
+  /** Gets the list of available languages
+   *
+   * @ return The list of languages
+   */
+  _WRAP_METHOD(static std::vector<Glib::ustring> get_language_list(), gtk_spell_checker_get_language_list)
+
   /** Rechecks the entire text buffer */
   _WRAP_METHOD(void recheck_all(), gtk_spell_checker_recheck_all)
 

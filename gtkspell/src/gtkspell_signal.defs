@@ -9,3 +9,11 @@
   )
 )
 
+(define-property decode-language-codes
+  (of-object "GtkSpellChecker")
+  (prop-type "GParamBoolean")
+  (docs "Whether to show decoded language codes in the context menu (requires the iso-codes package)")
+  (readable #t)
+  (writable #t)
+  (construct-only #f)
+)

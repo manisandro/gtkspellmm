@@ -92,9 +92,17 @@
   (return-type "const-gchar*")
 )
 
-(define-function gtk_spell_checker_get_language_list
+(define-function get_language_list
   (c-name "gtk_spell_checker_get_language_list")
   (return-type "GList*")
+)
+
+(define-function gtk_spell_checker_decode_language_code
+  (c-name "gtk_spell_checker_decode_language_code")
+  (return-type "gchar*")
+  (parameters
+    '("const-gchar*" "lang")
+  )
 )
 
 (define-method recheck_all

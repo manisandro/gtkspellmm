@@ -85,9 +85,25 @@ public:
 
   /** Gets the list of available languages
    *
-   * @ return The list of languages
+   * @return The list of languages
+   * 
+   * @newin{3,0,2}
    */
   _WRAP_METHOD(static std::vector<Glib::ustring> get_language_list(), gtk_spell_checker_get_language_list)
+
+  /** Translates the language code to a human readable format
+   *  (i.e. "en_US" -> "English (United States)").
+   *
+   * @param lang The language locale specifier (i.e. "en", or "en_US").
+   *
+   * @note If the iso-codes package is not available, the unchanged code is
+   * returned.
+   *
+   * @returns The translated language specifier.
+   *
+   * @newin{3,0,2}
+   */
+  _WRAP_METHOD(static Glib::ustring decode_language_code(const Glib::ustring& lang), gtk_spell_checker_decode_language_code)
 
   /** Rechecks the entire text buffer */
   _WRAP_METHOD(void recheck_all(), gtk_spell_checker_recheck_all)
@@ -97,6 +113,13 @@ public:
    * @param newlang The new spelling language
    */
   _WRAP_SIGNAL(void language_changed(const Glib::ustring& newlang), "language-changed")
+
+  /** Whether to show decoded language codes in the context menu
+   *  (requires the iso-codes package).
+   *
+   * @newin{3,0,2}
+   */
+  _WRAP_PROPERTY("decode-language-codes", bool);
 };
 
 } // namespace GtkSpell

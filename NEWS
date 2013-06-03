@@ -1,5 +1,7 @@
-Version 3.0.2 - Tue May 28 2013, by Sandro Mani
-* Update for Gtkspell3-3.0.3 API changes
+Version 3.0.2 - Tue Jun 04 2013, by Sandro Mani
+* Update for GtkSpell3-3.0.3 API changes
+* Adds decode-language-codes property
+* Adds decode_language_code method
 
 Version 3.0.1 - Fri Apr 26 2013, by Sandro Mani
 * Use correct GPLv2 license headers

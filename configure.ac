@@ -69,7 +69,7 @@ MM_ARG_WITH_TAGFILE_DOC([gtkmm-3.0.tag], [gtkmm-3.0])
 AC_LANG([C++])
 MM_ARG_ENABLE_WARNINGS([GTKSPELLMM_WXXFLAGS],
                        [-Wall],
-                       [-pedantic -Wall -Wextra],
+                       [-Wall -Wextra],
                        [G GTKSPELL])
 
 AC_CONFIG_FILES([gtkspellmm30.spec

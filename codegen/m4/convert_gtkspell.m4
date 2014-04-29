@@ -1,4 +1,4 @@
-dnl Copyright (c) 2013  Sandro Mani <manisandro@gmail.com>
+dnl Copyright (c) 2013-2014  Sandro Mani <manisandro@gmail.com>
 dnl This file is part of gtkspellmm.
 
 _CONV_ENUM(GtkSpell,Error)

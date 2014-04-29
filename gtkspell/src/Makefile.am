@@ -1,4 +1,4 @@
-## Copyright (c) 2013  Sandro Mani <manisandro@gmail.com>
+## Copyright (c) 2013-2014  Sandro Mani <manisandro@gmail.com>
 ##
 ## This file is part of gtkspellmm.
 ##

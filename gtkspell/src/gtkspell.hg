@@ -52,7 +52,7 @@ public:
    * @return A Glib::RefPtr to the attached Gtk::SpellChecker, if any, otherwise
    * a @c null Glib::RefPtr
    */
-  _WRAP_METHOD(static Glib::RefPtr<Checker> get_from_text_view(Gtk::TextView& view), gtk_spell_checker_get_from_text_view)
+  _WRAP_METHOD(static Glib::RefPtr<Checker> get_from_text_view(Gtk::TextView& view), gtk_spell_checker_get_from_text_view, refreturn)
 
   /** Detaches the Gtk::SpellChecker
    *

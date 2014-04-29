@@ -1,3 +1,7 @@
+Version 3.0.3 - Wed Apr 30 2014, by Sandro Mani
+* Fix crash caused by GtkSpell::Checker::get_from_text_view() not referencing
+  the returned RefPtr.
+
 Version 3.0.2 - Tue Jun 04 2013, by Sandro Mani
 * Update for GtkSpell3-3.0.3 API changes
 * Adds decode-language-codes property

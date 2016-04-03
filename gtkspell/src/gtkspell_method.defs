@@ -67,6 +67,15 @@
   (return-type "none")
 )
 
+(define-method get_suggestions
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_get_suggestions")
+  (return-type "GList*")
+  (parameters
+    '("const-gchar*" "word")
+  )
+)
+
 (define-method get_suggestions_menu
   (of-object "GtkSpellChecker")
   (c-name "gtk_spell_checker_get_suggestions_menu")

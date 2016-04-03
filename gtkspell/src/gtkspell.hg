@@ -61,6 +61,16 @@ public:
    */
   _WRAP_METHOD(void detach(), gtk_spell_checker_detach)
 
+  /** Retreives a list of spelling suggestions for the specified word.
+   *
+   * @param word The word for which to fetch suggestions
+   *
+   * @return The list of spelling suggestions for the specified word.
+   *
+   * @newin{3,0,4}
+   */
+  _WRAP_METHOD(std::vector<Glib::ustring> get_suggestions(const Glib::ustring& word), gtk_spell_checker_get_suggestions)
+
   /** Retreives a Gtk::Menu of replacement spellings
    *
    * @param iter A Gtk::TextIter position in the buffer to be corrected

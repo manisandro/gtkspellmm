@@ -16,7 +16,7 @@
 ## with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 m4_define(gtkspellmm_version_minor, 0)
-m4_define(gtkspellmm_version_micro, 4)
+m4_define(gtkspellmm_version_micro, 5)
 
 AC_INIT([gtkspellmm], [3.gtkspellmm_version_minor.gtkspellmm_version_micro],
         [https://sourceforge.net/p/gtkspell/_list/tickets], [gtkspellmm],

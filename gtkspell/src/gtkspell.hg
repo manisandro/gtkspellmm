@@ -128,6 +128,22 @@ public:
   /** Rechecks the entire text buffer */
   _WRAP_METHOD(void recheck_all(), gtk_spell_checker_recheck_all)
 
+  /** Add the specified word to the user dictionary.
+   *
+   * @param word The word to add to the user dictionary.
+   *
+   * @newin{3,0,5}
+   */
+  _WRAP_METHOD(void add_to_dictionary(const Glib::ustring& word), gtk_spell_checker_add_to_dictionary)
+
+  /** Add the specified word to the user ignore list.
+   *
+   * @param word The word to add to the user ignore list.
+   *
+   * @newin{3,0,5}
+   */
+  _WRAP_METHOD(void ignore_word(const Glib::ustring& word), gtk_spell_checker_ignore_word)
+
   /** This signal is emitted when a new language is selected from the context menu
    *
    * @param newlang The new spelling language

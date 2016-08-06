@@ -129,4 +129,22 @@
   (return-type "none")
 )
 
+(define-method add_to_dictionary
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_add_to_dictionary")
+  (return-type "none")
+  (parameters
+    '("const-gchar*" "word")
+  )
+)
+
+(define-method ignore_word
+  (of-object "GtkSpellChecker")
+  (c-name "gtk_spell_checker_ignore_word")
+  (return-type "none")
+  (parameters
+    '("const-gchar*" "word")
+  )
+)
+
 
